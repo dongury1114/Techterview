@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import FeedbackMenu from "../page/FeedbackMenu"
+import FeedbackMenu from "./FeedbackMenu"
 // import {Link} from 'react-router-dom';
 
 

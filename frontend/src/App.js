@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import "./index.css"
 import "./components/modal/VideoDeleteModal.css"
 import { BrowserRouter, Routes, Router, Route } from "react-router-dom";
-import Navbar from "../src/components/layout/Nav"
+import Navbar from "./components/layout/Nav"
 import Mainbody from "./components/page/Main"
 import Feedback from "./components/page/Feedback"
 import FeedbackDetail from "./components/page/FeedbackDetail"

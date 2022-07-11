@@ -2,7 +2,7 @@
 import {useState}  from 'react';
 import VideoDeleteModal from '../modal/VideoDeleteModal.js';
 import VideoFaceVoiceEditModal from '../modal/VideoFaceVoiceEditModal'
-import FeedbackMenu from "../page/FeedbackMenu"
+import FeedbackMenu from "./FeedbackMenu"
 import {Link} from 'react-router-dom';
 
 function MyVideo() {

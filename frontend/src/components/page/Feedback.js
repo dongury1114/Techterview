@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 // import * as Icon from 'react-bootstrap-icons';
-import FeedbackMenu from "../page/FeedbackMenu"
+import FeedbackMenu from "./FeedbackMenu"
 import {Link} from 'react-router-dom';
 // import VideoDeleteModal from "../modal/VideoDeleteModal"
 

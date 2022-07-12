@@ -2,16 +2,6 @@ var express  = require('express');
 var router   = express.Router();
 var passport = require('../config/passport');
 
-router.get('/login', (req,res) => {
-    res.render('auth/login');
-});
-
-router.get('/logout', (req, res) => {
-    req.logout
-    req.session.destroy();
-    res.redirect('/')
-})
-
 router.get('/google',
     passport.authenticate('google', { scope: ['profile'] })
 );
@@ -31,5 +21,4 @@ router.get('/kakao/callback',
         res.redirect('/');
     }
 );
-
 module.exports = router;

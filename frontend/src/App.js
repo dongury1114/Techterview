@@ -13,7 +13,6 @@ import TrainingAlone from "./components/page/TrainingAlone";
 import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends Component {
   render() {
-    
     return (
       <div className="App">
         <BrowserRouter>
@@ -27,7 +26,6 @@ class App extends Component {
               <Route path="/feedbackdetail" element={<FeedbackDetail />}/>
             </Route>
             <Route path="/trainingalone" element={<TrainingAlone/>}/>
-
           </Routes>
         </BrowserRouter>
       </div>

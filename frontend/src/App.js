@@ -11,7 +11,6 @@ import Login from "./components/page/LogIn";
 import QuestionList from "./components/page/QuestionList";
 import TrainingAlone from "./components/page/TrainingAlone";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Record from "./components/page/Record";
 
 class App extends Component {
   render() {
@@ -30,7 +29,6 @@ class App extends Component {
 
             </Route>
             <Route path="/trainingalone" element={<TrainingAlone />} />
-            <Route path="/record" element={<Record />} />
 
           </Routes>
         </BrowserRouter>

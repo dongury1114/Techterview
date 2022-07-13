@@ -48,12 +48,13 @@ function TrainingAlone() {
                                     <source src="../videos/sample2.mp4" type="video/mp4" />
                                 </video>
                                 <audio id="audioPlay">
-                                    <source src="../audios/sample1.mp3" type="audio/mpeg" />
+                                    <source src="../audios/sample.mp3" type="audio/mpeg" />
                                 </audio>
 
                             </div>
 
                             <div className="grid-item"
+                                style={{ marginLeft: 90 }}
                             >
                                 <video className="VideoMirror"
                                     ref={recordWebcam.webcamRef}

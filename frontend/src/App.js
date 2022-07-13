@@ -14,6 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import TrainingOthers from "./components/page/TrainingOthers";
 import axios from 'axios';
 
+
 class App extends Component {
   render() {
 

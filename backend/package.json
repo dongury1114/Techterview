@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www",
+    "backend" : "nodemon ./bin/www",
+    "dev": "concurrently \"npm run build --prefix ../frontend\" \"npm run backend\""
+    
   },
   "dependencies": {
     "axios": "^0.27.2",

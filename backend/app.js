@@ -12,6 +12,9 @@ dotenv.config();
 
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
+var feedbackRouter = require('./routes/feedback');
+var questionListRouter = require('./routes/questionList');
+var trainingRouter = require('./routes/training');
 
 var app = express();
 
@@ -47,6 +50,9 @@ app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
+app.use('/feedback', feedbackRouter);
+app.use('/questionList', questionListRouter);
+app.use('/training', trainingRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

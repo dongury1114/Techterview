@@ -7,7 +7,7 @@ import create from 'zustand'
 
 import ReactDOM from "react-dom";
 
-import "./styles.css";
+import "../styles.css";
 import { useRecordWebcam } from "react-record-webcam";
 import zustand from 'zustand';
 
@@ -61,18 +61,18 @@ function TrainingAlone() {
                 <div className="training-container-box">
                     <div className="training-item1">
                         <button onClick={recordWebcam.start}
-                            style={{ backgroundColor: 'black' }}><img className="video-thumbnail-finst-place" src={require("../images/start.png")} alt={"start button"} /></button>
+                            style={{ backgroundColor: 'black' }}><img className="video-thumbnail-finst-place" src={require("../../images/start.png")} alt={"start button"} /></button>
                     </div>
 
                     <div className="training-item-first-place">
 
                         <button style={{ backgroundColor: 'black' }} onClick={recordWebcam.stop}>
-                            <img className="video-thumbnail-second-place" src={require("../images/next.png")} alt={"next button"} />
+                            <img className="video-thumbnail-second-place" src={require("../../images/next.png")} alt={"next button"} />
                         </button>
                     </div>
                     <div className="training-item">
                         <button style={{ backgroundColor: 'black' }} onClick={recordWebcam.download}>
-                            <img className="video-thumbnail-third-place" src={require("../images/end.png")} alt={"end button"} />
+                            <img className="video-thumbnail-third-place" src={require("../../images/end.png")} alt={"end button"} />
 
                         </button>
                     </div>

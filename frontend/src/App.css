@@ -37,3 +37,48 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Ovinsecure */
+.VidParticipantInputBox {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: space-b;
+}
+input#userName{
+  margin-left: 20px;
+  width: 200px;
+}
+.VidSessionInputBox {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input#sessionId{
+  margin-left: 20px;
+  width: 200px;
+
+}
+
+
+.jumbotron.vertical-center {
+  margin: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+label.nickname {
+  color: white;
+}
+label.sessionId {
+  color: white;
+}
+div#session-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}  

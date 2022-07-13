@@ -1,18 +1,20 @@
 import React, { Component } from "react"
+import { BrowserRouter, Routes, Router, Route } from "react-router-dom";
+import axios from 'axios';
+
 import "./index.css"
 import "./components/modal/VideoDeleteModal.css"
-import { BrowserRouter, Routes, Router, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Navbar from "./components/layout/Nav"
 import Mainbody from "./components/page/Main"
-import Feedback from "./components/page/Feedback"
-import FeedbackDetail from "./components/page/FeedbackDetail"
-import MyVideo from "./components/page/MyVideo";
+import Feedback from "./components/page/feedback/MainPage"
+import FeedbackDetail from "./components/page/feedback/Detail"
+import MyVideo from "./components/page/feedback/MyVideo";
 import Login from "./components/page/LogIn";
-import QuestionList from "./components/page/QuestionList";
-import TrainingAlone from "./components/page/TrainingAlone";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import TrainingOthers from "./components/page/TrainingOthers";
-import axios from 'axios';
+import QuestionList from "./components/page/questionList/MainPage";
+import TrainingAlone from "./components/page/training/Alone";
+import TrainingOthers from "./components/page/training/Others";
 
 
 class App extends Component {
@@ -25,14 +27,15 @@ class App extends Component {
             <Route element={<Navbar />}>
               <Route path="/" element={<Mainbody />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/myvideo" element={<MyVideo />} />
-              <Route path="/questionlist" element={<QuestionList />} />
-              <Route path="/feedback" element={<Feedback />} />
-              <Route path="/feedbackdetail" element={<FeedbackDetail />} />
+              <Route path="/feedback/Myvideo" element={<MyVideo />} />
+              <Route path="/questionlist/mainpage" element={<QuestionList />} />
+              <Route path="/feedback/mainpage" element={<Feedback />} />
+              <Route path="/feedback/Detail" element={<FeedbackDetail />} />
 
             </Route>
-            <Route path="/trainingalone" element={<TrainingAlone />} />
-            <Route path="/TrainingOthers" element={<TrainingOthers/>}/>
+
+            <Route path="/training/Alone" element={<TrainingAlone />} />
+            <Route path="/Training/Others" element={<TrainingOthers/>}/>
 
           </Routes>
         </BrowserRouter>

@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-module.exports = class Member extends Sequelize.Model{
+module.exports = class SubCategory extends Sequelize.Model{
     static init(sequelize){
         return super.init(
             {
@@ -9,13 +9,7 @@ module.exports = class Member extends Sequelize.Model{
                     autoIncrement: true,
                     primaryKey: true
                 },
-                sns_id: {
-                    type: Sequelize.STRING(50)
-                },
-                provider: {
-                    type: Sequelize.STRING(50)
-                },
-                name: {
+                subCategory_name: {
                     type: Sequelize.STRING(50),
                 },
             }, {
@@ -23,14 +17,14 @@ module.exports = class Member extends Sequelize.Model{
                 underscored: false,
                 charset: "utf8", 
                 collate: "utf8_bin", 
-                tableName: "member", 
+                tableName: "subCategory", 
                 timestamps: false, 
                 paranoid: false, 
-            },
-        );
-    }
+            });
+        }
 
     static associate(db) {
-
+        db.SubCategory.belongsTo(db.MainCategory);
+        db.SubCategory.hasMany(db.Questions);
     }
 };

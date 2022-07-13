@@ -16,10 +16,10 @@ class Login extends Component {
                             </div>
                             <div className="logInImage">
                                 <div className="kakaoImage">
-                                    <button><img src={require("../images/kakao_login.png")} alt="my image" onClick={this.myfunction} /></button>
+                                    <a href='/auth/kakao'><img src={require("../images/kakao_login.png")} alt="my image" onClick={this.myfunction} /></a>
                                 </div>
                                 <div className="googleImage">
-                                    <button><img src={require("../images/google_login.png")} alt="my image" onClick={this.myfunction} /></button>
+                                    <a href='/auth/google'><img src={require("../images/google_login.png")} alt="my image" onClick={this.myfunction} /></a>
                                 </div>
                             </div>
                         </div>

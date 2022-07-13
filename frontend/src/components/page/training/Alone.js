@@ -70,26 +70,16 @@ function TrainingAlone() {
             <div className='training-footer'>
                 <div className="training-container-box">
                     <div className="training-item1">
-<<<<<<< HEAD:frontend/src/components/page/TrainingAlone.js
                         {/* <button onClick={recordWebcam.start}
                             style={{ backgroundColor: 'black' }}><img className="video-thumbnail-finst-place" src={require("../images/start.png")} alt={"start button"} /></button> */}
                         <button onClick={play}
-                            style={{ backgroundColor: 'black' }}><img className="video-thumbnail-finst-place" src={require("../images/start.png")} alt={"start button"} /></button>
-=======
-                        <button onClick={recordWebcam.start}
                             style={{ backgroundColor: 'black' }}><img className="video-thumbnail-finst-place" src={require("../../images/start.png")} alt={"start button"} /></button>
->>>>>>> ffb4c7f3113d1ef80e7098347da7d3bf509a8175:frontend/src/components/page/training/Alone.js
                     </div>
 
                     <div className="training-item-first-place">
 
-<<<<<<< HEAD:frontend/src/components/page/TrainingAlone.js
                         <button style={{ backgroundColor: 'black' }} onClick={next}>
-                            <img className="video-thumbnail-second-place" src={require("../images/next.png")} alt={"next button"} />
-=======
-                        <button style={{ backgroundColor: 'black' }} onClick={recordWebcam.stop}>
                             <img className="video-thumbnail-second-place" src={require("../../images/next.png")} alt={"next button"} />
->>>>>>> ffb4c7f3113d1ef80e7098347da7d3bf509a8175:frontend/src/components/page/training/Alone.js
                         </button>
                     </div>
                     <div className="training-item">

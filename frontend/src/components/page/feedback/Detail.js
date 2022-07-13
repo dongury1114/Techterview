@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import FeedbackMenu from "./FeedbackMenu"
+import FeedbackMenu from "./Menu"
 // import {Link} from 'react-router-dom';
 
 
@@ -17,7 +17,7 @@ class FeedbackDetail extends Component {
             </div>
             <div class="feedbackdetail-video-grid-container-box">
                 <div class="feedbackdetail-video-grid-box">
-                    <div class="grid-item"><img className="video-thumbnail-second-place"  src={require("../images/video_thumbnail.png")} alt={"video thumbnail"}/>   </div>        
+                    <div class="grid-item"><img className="video-thumbnail-second-place"  src={require("../../images/video_thumbnail.png")} alt={"video thumbnail"}/>   </div>        
                     <div class="grid-item">1</div>
                 </div>
             </div>

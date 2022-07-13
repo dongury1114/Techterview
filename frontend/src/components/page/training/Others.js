@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import Ovinsecure from './../../../Ovinsecure'
 
 
-class TrainingAlone extends Component {
+
+class TrainingOthers extends Component {
     render() {
         return (
             <div className="training-container">
@@ -13,19 +15,19 @@ class TrainingAlone extends Component {
 
                 <div className='traing-inner-box'>
                     <div className='training-alone-dropbox'><BasicButtonExample /></div>
+                    <Ovinsecure/>
                 </div>
                 <div className='training-footer'>
-                    <div class="training-container-box">
-                        <div class="training-item1">1<img className="video-thumbnail-second-place" src={require("../images/start.png")} alt={"start button"} /></div>
-                        <div class="training-item-first-place"><img className="video-thumbnail-first-place" src={require("../images/next.png")} alt={"next button"} />   </div>
-                        <div class="training-item"><img className="video-thumbnail-third-place" src={require("../images/end.png")} alt={"end button"} />   </div>
+                    <div className="training-container-box">
+                        {/* <div className="training-item1">1<img className="video-thumbnail-second-place" src={require("../images/start.png")} alt={"start button"} /></div>
+                        <div className="training-item-first-place"><img className="video-thumbnail-first-place" src={require("../images/next.png")} alt={"next button"} />   </div>
+                        <div className="training-item"><img className="video-thumbnail-third-place" src={require("../images/end.png")} alt={"end button"} />   </div> */}
                     </div>
                 </div>
             </div>
         )
     }
 }
-
 function BasicButtonExample() {
     return (
         <DropdownButton id="dropdown-basic-button" title="선택해주세요">
@@ -36,6 +38,6 @@ function BasicButtonExample() {
     );
 }
 
-export default TrainingAlone
 
+export default TrainingOthers
 

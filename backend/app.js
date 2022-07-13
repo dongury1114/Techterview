@@ -7,27 +7,34 @@ var logger = require('morgan');
 var passport = require('passport');
 var session = require('express-session');
 var dotenv = require('dotenv');
+var cors = require('cors');
 dotenv.config();
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
+var feedbackRouter = require('./routes/feedback');
+var questionListRouter = require('./routes/questionList');
+var trainingRouter = require('./routes/training');
 
 var app = express();
 
-const { sequelize } = require('./models');
+const { sequelize } = require('./models/index');
 
-sequelize.sync({ force: false })
-    .then(() => {
-        console.log('데이터베이스 연결 성공');
-    })
-    .catch((err) => {
-        console.error(err);
-    });
+sequelize.sync({ force: false }) 
+  .then(() => {
+    console.log('데이터베이스 연결 성공');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(express.json());
+app.use(cors());
 
 app.use(session({secret:'MySecret', resave: false, saveUninitialized:true}));
 app.use(passport.initialize());
@@ -39,11 +46,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 app.use('/auth', authRouter);
+app.use('/feedback', feedbackRouter);
+app.use('/questionList', questionListRouter);
+app.use('/training', trainingRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

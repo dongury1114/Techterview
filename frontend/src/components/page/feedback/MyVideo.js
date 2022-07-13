@@ -1,8 +1,8 @@
 // import React, {Component} from 'react';
 import {useState}  from 'react';
-import VideoDeleteModal from '../modal/VideoDeleteModal.js';
-import VideoFaceVoiceEditModal from '../modal/VideoFaceVoiceEditModal'
-import FeedbackMenu from "./FeedbackMenu"
+import VideoDeleteModal from '../../modal/VideoDeleteModal.js';
+import VideoFaceVoiceEditModal from '../../modal/VideoFaceVoiceEditModal'
+import FeedbackMenu from "./Menu"
 import {Link} from 'react-router-dom';
 
 function MyVideo() {
@@ -31,7 +31,7 @@ function MyVideo() {
                     </thead>
                     <tbody>
                         <tr>
-                        <td>4</td><Link to= "/feedbackdetail"><td>회사 지원 동기</td></Link><td>abd3</td><td>44</td><td>33</td>
+                        <td>4</td><Link to= "/feedback/detail"><td>회사 지원 동기</td></Link><td>abd3</td><td>44</td><td>33</td>
                         </tr>
                         <tr>
                         <td>5</td><td>다른 사람보다 뛰어난 점</td><td>Dolor</td><td>32</td><td>22</td>

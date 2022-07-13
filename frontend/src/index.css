@@ -52,9 +52,11 @@ button {
 .main-photo1 {
   text-align: center;
 }
+
 .main-page-enter-btn {
   text-align: center;
 }
+
 button.main-page-enter-btn {
   font-weight: 800;
   color: white;
@@ -65,13 +67,18 @@ button.main-page-enter-btn {
 
 /* feedback-menu */
 
+
 ul.navigation-bar-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
   list-style-type: none;
   margin-top: 70px;
   font-family: Montserrat, sans-serif;
 }
 li {
-  margin: 25px;
+  margin: 20px;
 }
 
 /* feedback-table */
@@ -84,9 +91,11 @@ li {
 table {
   margin: auto;
 }
+
 td {
   padding: 25px 30px;
 }
+
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -97,11 +106,13 @@ td {
   justify-content: center;
   align-items: center;
 }
+
 .feedbackdetail-video-grid-container-box {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .feedbackdetail-video-grid-box {
   display: grid;
   grid-template-columns: 1fr;
@@ -111,6 +122,7 @@ td {
 .feedbackdetail-title {
   text-align: center;
 }
+
 .feedbackdetail-title-right {
   margin-left: 30px;
   margin-bottom: 20px;
@@ -154,6 +166,7 @@ td {
   font-size: 2.5rem;
   font-weight: 700;
 }
+
 .login-phrase2 {
   color: rgba(64, 218, 199, 1);
   font-size: 2.5rem;
@@ -177,7 +190,7 @@ td {
 
 .traing-inner-box {
   width: 100%;
-  height: 550px;
+  height: 750px;
   margin-top: 20px;
   background-color: #4e4b4b;
 }
@@ -212,6 +225,7 @@ td {
 .training-alone-dropbox {
   justify-content: center;
 }
+
 .add-face-filter-voice-btn {
   border: 2px solid lightgrey;
   color: black;
@@ -230,4 +244,18 @@ td {
   cursor: pointer;
   margin: 10px;
   border-radius: 10px;
+}
+
+.webcamalone {
+  margin-right: 800px;
+}
+
+.video {
+  width: 400px;
+  height: 230px;
+  background: black;
+}
+
+.section {
+  margin: 15px;
 }

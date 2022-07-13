@@ -3,11 +3,17 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www",
+    "backend" : "nodemon ./bin/www",
+    "dev": "concurrently \"npm run build --prefix ../frontend\" \"npm run backend\""
+    
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "body-parser": "^1.20.0",
+    "concurrently": "^7.2.2",
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "dotenv": "^16.0.1",
     "ejs": "~2.6.1",
@@ -21,6 +27,7 @@
     "passport": "^0.6.0",
     "passport-google-oauth2": "^0.2.0",
     "passport-kakao": "^1.0.1",
-    "sequelize": "^6.21.2"
+    "sequelize": "^6.21.2",
+    "sequelize-cli": "^6.4.1"
   }
 }

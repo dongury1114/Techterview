@@ -6,7 +6,6 @@ import create from 'zustand'
 // import DropdownButton from 'react-bootstrap/DropdownButton';
 
 import ReactDOM from "react-dom";
-import Record from './Record';
 
 import "./styles.css";
 import { useRecordWebcam } from "react-record-webcam";

@@ -11,7 +11,8 @@ import Login from "./components/page/LogIn";
 import QuestionList from "./components/page/QuestionList";
 import TrainingAlone from "./components/page/TrainingAlone";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Record from "./components/page/Record";
+import TrainingOthers from "./components/page/TrainingOthers";
+import axios from 'axios';
 
 
 class App extends Component {
@@ -31,7 +32,7 @@ class App extends Component {
 
             </Route>
             <Route path="/trainingalone" element={<TrainingAlone />} />
-            <Route path="/record" element={<Record />} />
+            <Route path="/TrainingOthers" element={<TrainingOthers/>}/>
 
           </Routes>
         </BrowserRouter>

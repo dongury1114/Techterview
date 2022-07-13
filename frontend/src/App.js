@@ -13,6 +13,7 @@ import TrainingAlone from "./components/page/TrainingAlone";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Record from "./components/page/Record";
 
+
 class App extends Component {
   render() {
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 
 import create from 'zustand'
@@ -11,11 +11,28 @@ import Record from './Record';
 import "./styles.css";
 import { useRecordWebcam } from "react-record-webcam";
 import zustand from 'zustand';
-
 function TrainingAlone() {
 
-    const OPTIONS = { filename: "test-filename", fileType: "mp4", width: 500, height: 500 };
+    const OPTIONS = { filename: "test-filename", fileType: "mp4" };
     const recordWebcam = useRecordWebcam(OPTIONS);
+
+    let audio = document.getElementById("audioPlay");
+    let video = document.getElementById("videoPlay");
+    const play = (e) => {
+        audio.play();
+        recordWebcam.start();
+        video.play();
+    }
+
+    const next = (e) => {
+        recordWebcam.stop();
+        video.pause();
+    }
+
+    useEffect(() => {
+        recordWebcam.open();
+    }, [])
+
 
     return (
         <div className="training-container">
@@ -25,33 +42,25 @@ function TrainingAlone() {
             <div className='traing-inner-box'>
                 <div className='training-alone-dropbox'>
                     < div className="training-grid-container-box" >
-                        <div className="training-grid-container">
-                            <div className="grid-item">
-                                <video controls autoPlay={true}>
-                                    <source src="../video/sample1.mp4" type="video/webm" />
+                        <div className="training-grid-container" style={{ justifyContent: 'center' }}>
+                            <div className="grid-item" style={{ marginTop: 60, marginRight: 100 }}>
+                                <video loop={true} muted={true} id="videoPlay" style={{ height: 380 }} >
+                                    <source src="../videos/sample2.mp4" type="video/mp4" />
                                 </video>
+                                <audio id="audioPlay">
+                                    <source src="../audios/sample1.mp3" type="audio/mpeg" />
+                                </audio>
+
                             </div>
 
-                            <div>
-                            </div>
-
-                            <div className="grid-item">
+                            <div className="grid-item"
+                            >
                                 <video className="VideoMirror"
                                     ref={recordWebcam.webcamRef}
                                     autoPlay
+                                    muted
                                 />
-                                <div>
-                                    <button
-                                        onClick={recordWebcam.open}
-                                    >
-                                        Open camera
-                                    </button>
-                                    <button
-                                        onClick={recordWebcam.close}
-                                    >
-                                        Close camera
-                                    </button>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -61,13 +70,15 @@ function TrainingAlone() {
             <div className='training-footer'>
                 <div className="training-container-box">
                     <div className="training-item1">
-                        <button onClick={recordWebcam.start}
+                        {/* <button onClick={recordWebcam.start}
+                            style={{ backgroundColor: 'black' }}><img className="video-thumbnail-finst-place" src={require("../images/start.png")} alt={"start button"} /></button> */}
+                        <button onClick={play}
                             style={{ backgroundColor: 'black' }}><img className="video-thumbnail-finst-place" src={require("../images/start.png")} alt={"start button"} /></button>
                     </div>
 
                     <div className="training-item-first-place">
 
-                        <button style={{ backgroundColor: 'black' }} onClick={recordWebcam.stop}>
+                        <button style={{ backgroundColor: 'black' }} onClick={next}>
                             <img className="video-thumbnail-second-place" src={require("../images/next.png")} alt={"next button"} />
                         </button>
                     </div>

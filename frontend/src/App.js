@@ -11,21 +11,29 @@ import Login from "./components/page/LogIn";
 import QuestionList from "./components/page/QuestionList";
 import TrainingAlone from "./components/page/TrainingAlone";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import TrainingOthers from "./components/page/TrainingOthers";
+import axios from 'axios';
+
 class App extends Component {
   render() {
+
     return (
       <div className="App">
         <BrowserRouter>
           <Routes>
             <Route element={<Navbar />}>
-              <Route path="/" element={<Mainbody />}/>
-              <Route path="/login" element={<Login />}/>
-              <Route path="/myvideo" element={<MyVideo/>}/>
-              <Route path="/questionlist" element={<QuestionList />}/>
-              <Route path="/feedback" element={<Feedback />}/>
-              <Route path="/feedbackdetail" element={<FeedbackDetail />}/>
+              <Route path="/" element={<Mainbody />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/myvideo" element={<MyVideo />} />
+              <Route path="/questionlist" element={<QuestionList />} />
+              <Route path="/feedback" element={<Feedback />} />
+              <Route path="/feedbackdetail" element={<FeedbackDetail />} />
+
             </Route>
-            <Route path="/trainingalone" element={<TrainingAlone/>}/>
+
+            <Route path="/trainingalone" element={<TrainingAlone />} />
+            <Route path="/TrainingOthers" element={<TrainingOthers/>}/>
+
           </Routes>
         </BrowserRouter>
       </div>

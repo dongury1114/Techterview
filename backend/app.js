@@ -15,14 +15,15 @@ var authRouter = require('./routes/auth');
 
 var app = express();
 
-const { sequelize } = require('./models');
+const { sequelize } = require('./models'); 
 
-sequelize.sync({ force: false })
+sequelize
+    .sync({ force: false })
     .then(() => {
-        console.log('DataBase connected');
+    	console.log('데이터 베이스 연결 성공');
     })
-    .catch((err) => {
-        console.error(err);
+    .catch(err => {
+    	console.error(err);
     });
 
 // view engine setup

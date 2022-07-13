@@ -23,14 +23,22 @@ passport.use(new googleStrategy({
             where: { sns_id: profile.id, provider: 'google' }, 
         });
         if (exUser) {
-            done(null, exUser);
+            var google_user = {
+                'user' : exUser,
+                'accessToken' : accessToken
+            }
+            done(null, google_user);
         } else {
-            const newUser = Member.create({
+            const newUser = await Member.create({
                 sns_id : profile.id,
                 provider : 'google',
                 name : profile.displayName,
             });
-            done(null, profile); 
+            var google_user = {
+                'user' : newUser.dataValues,
+                'accessToken' : accessToken
+            }
+            done(null, google_user); 
         }
     } catch (error) {
         console.error(error);
@@ -39,7 +47,8 @@ passport.use(new googleStrategy({
 }));
 
 passport.use(new kakaoStrategy({
-    clientID : process.env.KAKAO_ID,
+    clientID : process.env.KAKAO_CLIENT_ID,
+    clientSecret : process.env.KAKAO_CLIENT_SECRET,
     callbackURL : '/auth/kakao/callback',
 }, async (request, accessToken, refreshToken, profile, done) =>{
     // console.log('profile: ', profile);
@@ -48,14 +57,22 @@ passport.use(new kakaoStrategy({
             where: { sns_id: profile.id, provider: 'kakao' }, 
         });
         if (exUser) {
-            done(null, exUser);
+            var kakao_user = {
+                'user' : exUser,
+                'accessToken' : accessToken
+            }
+            done(null, kakao_user);
         } else {
-            const newUser = Member.create({
+            const newUser = await Member.create({
                 sns_id : profile.id,
                 provider : 'kakao',
                 name : profile.displayName,
             });
-            done(null, profile); 
+            var kakao_user = {
+                'user' : newUser.dataValues,
+                'accessToken' : accessToken
+            }
+            done(null, kakao_user); 
         }
     } catch (error) {
         console.error(error);

@@ -17,13 +17,13 @@ var app = express();
 
 const { sequelize } = require('./models');
 
-// sequelize.sync({ force: false })
-//     .then(() => {
-//         console.log('DataBase connected');
-//     })
-//     .catch((err) => {
-//         console.error(err);
-//     });
+sequelize.sync({ force: false })
+    .then(() => {
+        console.log('DataBase connected');
+    })
+    .catch((err) => {
+        console.error(err);
+    });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

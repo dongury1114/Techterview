@@ -8,6 +8,7 @@ router.get('/google',
 
 router.get('/google/callback',
     passport.authenticate('google'), (req, res) => {
+        // res.json({Member : req.user})
         res.redirect('/');
     }
 );
@@ -18,6 +19,7 @@ router.get('/kakao',
 
 router.get('/kakao/callback',
     passport.authenticate('kakao', {failureRedirect: '/'}), (req, res) => {
+        // res.json({Member : req.user})
         res.redirect('/');
     }
 );

@@ -15,7 +15,7 @@ import Login from "./components/page/LogIn";
 import QuestionList from "./components/page/questionList/MainPage";
 import TrainingAlone from "./components/page/training/Alone";
 import TrainingOthers from "./components/page/training/Others";
-
+import OthersLobby from "./components/page/training/OthersLobby";
 
 class App extends Component {
   render() {
@@ -27,16 +27,17 @@ class App extends Component {
             <Route element={<Navbar />}>
               <Route path="/" element={<Mainbody />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/feedback/Myvideo" element={<MyVideo />} />
+              <Route path="/feedback/myvideo" element={<MyVideo />} />
               <Route path="/questionlist/mainpage" element={<QuestionList />} />
               <Route path="/feedback/mainpage" element={<Feedback />} />
-              <Route path="/feedback/Detail" element={<FeedbackDetail />} />
-
+              <Route path="/feedback/detail" element={<FeedbackDetail />} />
+              <Route path="/training/detail" element={<FeedbackDetail />} />
+              <Route path="/training/otherslobby" element={<OthersLobby/>} />
             </Route>
 
-            <Route path="/training/Alone" element={<TrainingAlone />} />
-            <Route path="/Training/Others" element={<TrainingOthers/>}/>
-
+            <Route path="/training/alone" element={<TrainingAlone />} />
+            <Route path="/training/others" element={<TrainingOthers/>}/>
+            
           </Routes>
         </BrowserRouter>
       </div>

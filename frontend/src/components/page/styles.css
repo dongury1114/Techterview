@@ -2,10 +2,12 @@
     font-family: sans-serif;
     text-align: center;
 }
+
 .VideoMirror {
     transform: rotateY(180deg);
     -webkit-transform: rotateY(180deg);
-    /* Safari and Chrome */
     -moz-transform: rotateY(180deg);
-    /* Firefox */
+    width: 674px;
+    height: 380px;
+    margin-top: 70px;
 }

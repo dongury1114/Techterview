@@ -211,7 +211,7 @@ td {
 
 .training-grid-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   margin-top: 120px;
 }
 
@@ -221,9 +221,21 @@ td {
   align-items: center;
 }
 
+.others-lobby-header2{
+  display: flex;
+  justify-content: space-between;
+  
+}
+
 /* training alone */
 .training-alone-dropbox {
   justify-content: center;
+}
+.others-lobby-enter-room-btn {
+  margin: 200px 100px;
+  border: #4e4b4b;
+  border: 1px solid #4e4b4b;
+  border-radius: 10px;
 }
 
 .add-face-filter-voice-btn {

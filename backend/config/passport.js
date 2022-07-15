@@ -17,7 +17,7 @@ passport.use(new googleStrategy({
     callbackURL: '/auth/google/callback',
     passReqToCallback: true
 }, async (request, accessToken, refreshToken, profile, done) => {
-    // console.log('profile: ', profile);s
+    // console.log('profile: ', profile);
     try {
         const exUser = await Member.findOne({
             where: { sns_id: profile.id, provider: 'google' },
@@ -51,7 +51,6 @@ passport.use(new kakaoStrategy({
     clientSecret : process.env.KAKAO_CLIENT_SECRET,
     callbackURL : '/auth/kakao/callback',
 }, async (request, accessToken, refreshToken, profile, done) =>{
-
     // console.log('profile: ', profile);
     try {
         const exUser = await Member.findOne({
@@ -82,4 +81,3 @@ passport.use(new kakaoStrategy({
     }
 }));
 module.exports = passport;
-

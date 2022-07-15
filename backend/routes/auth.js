@@ -9,7 +9,7 @@ router.get('/google',
 router.get('/google/callback',
     passport.authenticate('google'), (req, res) => {
         // res.json({Member : req.user})
-        res.redirect('/');
+        res.redirect('http://localhost:3000')
     }
 );
 
@@ -19,8 +19,9 @@ router.get('/kakao',
 
 router.get('/kakao/callback',
     passport.authenticate('kakao', {failureRedirect: '/'}), (req, res) => {
-        // res.json({Member : req.user})
-        res.redirect('/');
+        // res.json({Member : req.user})/
+        res.redirect('http://localhost:3000')
+        
     }
 );
 module.exports = router;

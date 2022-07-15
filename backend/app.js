@@ -14,7 +14,8 @@ var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 var feedbackRouter = require('./routes/feedback');
 var questionListRouter = require('./routes/questionList');
-var trainingRouter = require('./routes/training');
+var aloneRouter = require('./routes/training/alone');
+var othersRouter = require('./routes/training/others');
 
 var app = express();
 
@@ -53,7 +54,8 @@ app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/feedback', feedbackRouter);
 app.use('/questionList', questionListRouter);
-app.use('/training', trainingRouter);
+app.use('/training/alone', aloneRouter);
+app.use('/training/other', othersRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

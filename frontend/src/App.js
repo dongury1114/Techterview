@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { BrowserRouter, Routes, Router, Route } from "react-router-dom";
-import axios from 'axios';
 
 import "./index.css"
 import "./components/modal/VideoDeleteModal.css"
@@ -38,7 +37,7 @@ class App extends Component {
               <Route path="/training/otherslobby" element={<OthersLobby />} />
             </Route>
 
-            <Route path="/training/alone" element={<TrainingAlone />} />
+            <Route path="/page/training/alone/:key" element={<TrainingAlone />} />
             <Route path="/training/others" element={<TrainingOthers />} />
             <Route path="/training/CreateAlone" element={<CreateAlone />} />
 

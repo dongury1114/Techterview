@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useParams } from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
@@ -70,10 +69,13 @@ function CreateRoomAlone({ closeModal }) {
             value: "백엔드"
         }
     ];
-    let { key } = useParams();
-    const [SendNum, setSendNum] = useState([])
 
-    // key = SendNum
+    const [SendNum, setSendNum] = useState([])
+    function handleClick(e) {
+        window.location.replace("../page/training/Alone/" + SendNum)
+    }
+
+    console.log(SendNum);
     return (
         <div className="Create-delete-modal">
             <div className="Create-delete-modal-content">
@@ -123,8 +125,6 @@ function CreateRoomAlone({ closeModal }) {
 }
 
 
-function handleClick(e) {
-    window.location.replace("../page/training /Alone/{key}")
-}
+
 
 export default CreateRoomAlone

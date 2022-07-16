@@ -30,10 +30,9 @@ import axios from 'axios';
 
 function Nav() {
     
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [ isLoggedIn, setIsLoggedIn ] = useState(false)
 
     useEffect(() =>{
-  
         axios.post('http://localhost:8000/auth/api/silent-refresh',{}, {
         withCredentials:true
     }).then(res=> {
@@ -55,7 +54,7 @@ function Nav() {
                             <Link to="/questionlist/mainpage"><button className="interview-question-page-btn">질문 리스트</button></Link>
                             <Link to="/feedback/mainpage"><button className="interview-feedback-page-btn">피드백</button></Link>
                             <Link to="/feedback/myvideo"><button className="interview-my-page-btn">마이페이지</button></Link>
-                            {isLoggedIn ? 
+                            { isLoggedIn ? 
                             <Link to="http://localhost:8000/logout"><button className="interview-login-page-">로그아웃</button></Link>
                             : <Link to="/login"><button className="interview-login-page-">로그인</button></Link> }
                             

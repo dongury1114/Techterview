@@ -10,7 +10,7 @@ const isExistSnsId = async(provider, sns_id) => {
         });
     
         if(result['dataValues'].id){
-            return result['dataValues'].id;
+            return result['dataValues'].name;
         }else{
             throw new Error();
         }
@@ -21,14 +21,14 @@ const isExistSnsId = async(provider, sns_id) => {
     }
 }
 
-const snsSignUp = async({ nickname, sns_id, provider }) => {
+const snsSignUp = async({ sns_id, provider, name }) => {
     try {
         const user = await Member.create({
             sns_id : sns_id,
-            name : nickname,
+            name : name,
             provider : provider
         });
-        return user['dataValues'].id;
+        return user['dataValues'].name;
     } catch (error) {
         console.log(error);
         return false;

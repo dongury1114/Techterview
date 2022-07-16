@@ -4,7 +4,6 @@ var path = require('path');
 const bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var passport = require('passport');
 var session = require('express-session');
 var dotenv = require('dotenv');
 var cors = require('cors');
@@ -38,8 +37,6 @@ app.use(express.json());
 app.use(cors());
 
 app.use(session({secret:'MySecret', resave: false, saveUninitialized:true}));
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended:true }));

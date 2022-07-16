@@ -1,22 +1,19 @@
-var express  = require('express');
-var router   = express.Router();
+var express = require('express');
+var router = express.Router();
+var shuffle = require('shuffle-array');
 const { Questions } = require('../../models');
 
-router.get('/questions', async (req, res) => {
+router.get('/api/questions', async (req, res) => {
     try {
         const questionsDB = await Questions.findAll({
             where : { SubCategoryId : '8' },
         })
-        
+
         var questions = [];
-        questionsDB.forEach((value, index) => {
+        questionsDB.forEach((value) => {
             questions.push(value.questions_name)
         })
-        console.log(questions.length);
-        console.log(questions);
-
-        res.send(questions)
-
+        res.send(shuffle(questions))
     } catch (err){
         console.error(err);
         done(err);

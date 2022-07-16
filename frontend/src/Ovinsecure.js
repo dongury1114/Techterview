@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import './App.css';
 import UserVideoComponent from './UserVideoComponent';
 
-const OPENVIDU_SERVER_URL = 'https://13.125.106.69';
+const OPENVIDU_SERVER_URL = 'https://3.39.178.161';
 const OPENVIDU_SERVER_SECRET = 'techterview';
 // const OPENVIDU_SERVER_URL = 'https://' + window.location.hostname + ':4443';
 // const OPENVIDU_SERVER_SECRET = 'MY_SECRET';

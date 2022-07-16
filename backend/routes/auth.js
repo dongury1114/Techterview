@@ -10,8 +10,7 @@ dotenv.config();
 const KAKAO_AUTH_URL = process.env.KAKAO_AUTH_URL
 const KAKAO_AUTH_REDIRECT_URL = process.env.KAKAO_AUTH_REDIRECT_URL
 
-router.post("/api/silent-refresh", (req, res, next) =>{
-    console.log(11);
+router.post("/api/silentRefresh", (req, res, next) =>{
     const {refreshToken} = req.cookies;
     const verifyAccessToken = verifyToken(refreshToken);
     console.log('verifyAccessToken : ', verifyAccessToken);
@@ -75,7 +74,7 @@ router.get("/kakao/callback", async(req, res, next) => {
             httpOnly: true
         });
     } else {
-        const signUpUserId= await snsSignUp(userInformation);
+        const signUpUserId = await snsSignUp(userInformation);
         console.log('signUpUserId : ', signUpUserId);
         const refreshToken = makeRefreshToken(signUpUserId);
         res.cookie('refreshToken', refreshToken, {

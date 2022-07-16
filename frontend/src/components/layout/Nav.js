@@ -33,9 +33,8 @@ function Nav() {
     const [ isLoggedIn, setIsLoggedIn ] = useState(false)
 
     useEffect(() =>{
-        axios.post('http://localhost:8000/auth/api/silent-refresh',{}, {
-        withCredentials:true
-    }).then(res=> {
+        axios.post('http://localhost:8000/auth/api/silentRefresh',{})
+        .then(res=> {
         console.log(res);
         const {accessToken} = res.data;
         console.log(accessToken);

@@ -3,10 +3,10 @@ var router = express.Router();
 var shuffle = require('shuffle-array');
 const { Questions } = require('../../models');
 
-router.get('/api/questions', async (req, res) => {
+router.get('/api/questions/:subcategory', async (req, res) => {
     try {
         const questionsDB = await Questions.findAll({
-            where : { SubCategoryId : '8' },
+            where : { SubCategoryId : req.params.subcategory },
         })
 
         var questions = [];

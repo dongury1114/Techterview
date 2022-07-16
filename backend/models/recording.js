@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-module.exports = class Member extends Sequelize.Model{
+module.exports = class Recording extends Sequelize.Model{
     static init(sequelize){
         return super.init(
             {
@@ -9,28 +9,30 @@ module.exports = class Member extends Sequelize.Model{
                     autoIncrement: true,
                     primaryKey: true
                 },
-                sns_id: {
+                recording_name: {
                     type: Sequelize.STRING(50)
                 },
-                provider: {
+                recording_url: {
+                    type: Sequelize.STRING(100)
+                },
+                recording_size: {
+                    type: Sequelize.STRING(100)
+                },
+                extension: {
                     type: Sequelize.STRING(50)
-                },
-                name: {
-                    type: Sequelize.STRING(50),
-                },
+                }
             }, {
                 sequelize,
                 underscored: false,
                 charset: "utf8", 
                 collate: "utf8_bin", 
-                tableName: "member", 
-                timestamps: false, 
+                tableName: "recording", 
+                timestamps: true, 
                 paranoid: false, 
-            },
-        );
-    }
+            });
+        }
 
     static associate(db) {
-        db.Member.hasMany(db.Recording);
+        db.Recording.belongsTo(db.Member);
     }
 };

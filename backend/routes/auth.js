@@ -7,8 +7,8 @@ const { snsSignUp, isExistSnsId } = require('../config/login');
 
 dotenv.config();
 
-const KAKAO_AUTH_URL = "https://kauth.kakao.com/oauth"
-const KAKAO_AUTH_REDIRECT_URL = "http://localhost:8000/auth/kakao/callback"
+const KAKAO_AUTH_URL = process.env.KAKAO_AUTH_URL
+const KAKAO_AUTH_REDIRECT_URL = process.env.KAKAO_AUTH_REDIRECT_URL
 
 router.post("/api/silent-refresh", (req, res, next) =>{
     console.log(11);
@@ -67,6 +67,7 @@ router.get("/kakao/callback", async(req, res, next) => {
     };
 
     const user_id = await isExistSnsId(userInformation.provider, userInformation.sns_id);
+    console.log('user_id : ', user_id);
   
     if(user_id) {
         const refreshToken = makeRefreshToken(user_id);
@@ -75,6 +76,7 @@ router.get("/kakao/callback", async(req, res, next) => {
         });
     } else {
         const signUpUserId= await snsSignUp(userInformation);
+        console.log('signUpUserId : ', signUpUserId);
         const refreshToken = makeRefreshToken(signUpUserId);
         res.cookie('refreshToken', refreshToken, {
             httpOnly: true

@@ -17,7 +17,7 @@ import TrainingAlone from "./components/page/training/Alone";
 import TrainingOthers from "./components/page/training/Others";
 import OthersLobby from "./components/page/training/OthersLobby";
 
-class App extends Component {
+class App extends  Component {
   render() {
 
     return (

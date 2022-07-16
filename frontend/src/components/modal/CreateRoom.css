@@ -1,4 +1,4 @@
-.video-delete-modal {
+.Create-delete-modal {
     position: fixed;
     left: 0;
     top: 0;
@@ -11,8 +11,9 @@
     font-family: Montserrat, sans-serif;
 }
 
-.video-delete-modal-content {
-    width: 300px;
+.Create-delete-modal-content {
+    width: 600px;
+    height: 600px;
     background-color: white;
     padding: 50px;
     text-align: center;
@@ -20,7 +21,7 @@
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.video-delete-modal-footer {
+.Create-delete-modal-footer {
     padding: 10px;
 }
 
@@ -28,7 +29,7 @@
     margin: 0;
 }
 
-.video-delete-modal-body {
+.Create-delete-modal-body {
     padding: 10px;
     border-bottom: 1px solid #eee;
 }
@@ -72,8 +73,8 @@ button.btn-cancel {
     color: black;
 }
 
-/* my video page */
-.my-video-title {
+/* my Create page */
+.my-Create-title {
     font-family: Montserrat, sans-serif;
     font-size: 24px;
     text-align: center;
@@ -81,7 +82,7 @@ button.btn-cancel {
 }
 
 /* Video Face Voice Edit Modal */
-.video-edit-modal {
+.Create-edit-modal {
     position: fixed;
     left: 0;
     top: 0;
@@ -94,21 +95,21 @@ button.btn-cancel {
     font-family: Montserrat, sans-serif;
 }
 
-.video-edit-thumbnail {
+.Create-edit-thumbnail {
     display: inline-block;
 }
 
-.video-edit-voice-filter {
+.Create-edit-voice-filter {
     display: inline-block;
 }
 
-.video-edit-modal-body {
+.Create-edit-modal-body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
-.video-edit-modal-content {
+.Create-edit-modal-content {
     width: 800px;
     height: 500px;
     background-color: white;
@@ -118,15 +119,15 @@ button.btn-cancel {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.video-edit-modal-footer {
+.Create-edit-modal-footer {
     margin-top: 50px;
 }
 
-.video-edit-modal-title {
+.Create-edit-modal-title {
     margin: 0;
 }
 
-.video-edit-modal-body {
+.Create-edit-modal-body {
     margin-top: 50px;
     border-bottom: 1px solid #eee;
 }
@@ -170,7 +171,7 @@ button.btn-cancel {
     color: black;
 }
 
-.video-edit-face-btn {
+.Create-edit-face-btn {
     background-color: white;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     color: #000000;
@@ -180,7 +181,7 @@ button.btn-cancel {
     margin: 3px;
 }
 
-.video-edit-voice-btn {
+.Create-edit-voice-btn {
     background-color: white;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     color: black;
@@ -189,12 +190,18 @@ button.btn-cancel {
     padding: 5px 10px;
 }
 
-.video-edit-face-btn:hover {
+.Create-edit-face-btn:hover {
     border: 3px solid lightseagreen;
     color: black;
 }
 
-.video-edit-voice-btn:hover {
+.Create-edit-voice-btn:hover {
     border: 3px solid lightseagreen;
     color: black;
+}
+
+.InputWrap {
+    float: left;
+    margin-right: 0.5vw;
+    margin-bottom: 2.8vh;
 }

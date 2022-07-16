@@ -77,6 +77,7 @@ ul.navigation-bar-vertical {
   margin-top: 70px;
   font-family: Montserrat, sans-serif;
 }
+
 li {
   margin: 20px;
 }
@@ -221,19 +222,25 @@ td {
   align-items: center;
 }
 
-.others-lobby-header2{
+.others-lobby-header2 {
   display: flex;
   justify-content: space-between;
-  
+  height: 200px;
 }
+
+/* .others-lobby-header2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+} */
 
 /* training alone */
 .training-alone-dropbox {
   justify-content: center;
 }
+
 .others-lobby-enter-room-btn {
-  margin: 200px 100px;
-  border: #4e4b4b;
+  /* margin: 200px 100px; */
+  /* border: #4e4b4b; */
   border: 1px solid #4e4b4b;
   border-radius: 10px;
 }

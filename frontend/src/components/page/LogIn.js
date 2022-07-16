@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 
 
@@ -16,10 +17,10 @@ class Login extends Component {
                             </div>
                             <div className="logInImage">
                                 <div className="kakaoImage">
-                                    <a href='/auth/kakao'><img src={require("../images/kakao_login.png")} alt="my image" onClick={this.myfunction} /></a>
+                                    <a href='http://localhost:8000/auth/kakao'><img src={require("../images/kakao_login.png")} alt="my image" onClick={this.myfunction} /></a>
                                 </div>
                                 <div className="googleImage">
-                                    <a href='/auth/google'><img src={require("../images/google_login.png")} alt="my image" onClick={this.myfunction} /></a>
+                                    <a href='http://localhost:8000/auth/google'><img src={require("../images/google_login.png")} alt="my image" onClick={this.myfunction} /></a>
                                 </div>
                             </div>
                         </div>

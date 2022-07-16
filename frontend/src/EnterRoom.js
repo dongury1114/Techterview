@@ -1,26 +1,36 @@
-import axios from 'axios';
-import { OpenVidu } from 'openvidu-browser';
 import React, { Component } from 'react';
-import './App.css';
+import { OpenVidu } from 'openvidu-browser';
+import axios from 'axios';
 import UserVideoComponent from './UserVideoComponent';
 
-const OPENVIDU_SERVER_URL = 'https://3.39.178.161';
+// 화면구성 추가 dei
+// 정보들? mywebrtc
+const OPENVIDU_SERVER_URL = 'https://13.125.106.69';
 const OPENVIDU_SERVER_SECRET = 'techterview';
 // const OPENVIDU_SERVER_URL = 'https://' + window.location.hostname + ':4443';
 // const OPENVIDU_SERVER_SECRET = 'MY_SECRET';
 
 
-class Ovinsecure extends Component {
+class EnterRoom extends Component {
     constructor(props) {
-        super(props); 
+        super(props);
 
-        this.state = {  
+        this.state = {
             mySessionId: 'SessionA',
             myUserName: 'Participant' + Math.floor(Math.random() * 100),
             session: undefined,
             mainStreamManager: undefined,
             publisher: undefined,
             subscribers: [],
+
+            // 추가
+            audio: this.props.audio,
+            video: this.props.video,
+            userModel: undefined,
+            roomId: this.props.roomId,
+            ws: this.props.ws, // 이건 뭘까? 알아보기
+            roomTitle: this.props.roomTitle,
+
         };
 
         this.joinSession = this.joinSession.bind(this);
@@ -30,10 +40,15 @@ class Ovinsecure extends Component {
         this.handleChangeUserName = this.handleChangeUserName.bind(this);
         this.handleMainVideoStream = this.handleMainVideoStream.bind(this);
         this.onbeforeunload = this.onbeforeunload.bind(this);
+        // 추가
+        this.getConnectionId = this.getConnectionId.bind(this);
+        this.setConnectionId = this.setConnectionId.bind(this);
     }
 
     componentDidMount() {
-        window.addEventListener('beforeunload', this.onbeforeunload);
+        window.addEventListener("beforeunload", this.onbeforeunload);  //beforeunload => 사용자가 페이지를 이탈하려고 할 때 호출하는 함수
+
+        setTimeout(this.joinSession, 1000);
     }
 
     componentWillUnmount() {
@@ -64,13 +79,21 @@ class Ovinsecure extends Component {
         }
     }
 
-    deleteSubscriber(streamManager) {
-        let subscribers = this.state.subscribers;
-        let index = subscribers.indexOf(streamManager, 0);
+    // nicknameChanged(nickname) {
+    //     let localUser = this.state.localUser;
+    //     localUser.setNickname(nickname);
+    //     this.setState({ localUser: localUser });
+    //     this.sendSignalUserChanged({ nickname: this.state.localUser.getNickname() });
+    // }
+
+    deleteSubscriber(stream) {
+        const remoteUsers = this.state.subscribers;
+        const userStream = remoteUsers.filter((user) => user.getStreamManager().stream === stream)[0];
+        let index = remoteUsers.indexOf(userStream, 0);
         if (index > -1) {
-            subscribers.splice(index, 1);
+            remoteUsers.splice(index, 1);
             this.setState({
-                subscribers: subscribers,
+                subscribers: remoteUsers,
             });
         }
     }
@@ -80,7 +103,7 @@ class Ovinsecure extends Component {
 
         this.OV = new OpenVidu();
 
-        // --- 2) Init a session ---
+        // --- 2) Init a session --- 세션초기화
 
         this.setState(
             {
@@ -122,16 +145,20 @@ class Ovinsecure extends Component {
                 // 'getToken' method is simulating what your server-side should do.
                 // 'token' parameter should be retrieved and returned by your own backend
                 this.getToken().then((token) => {
+
+                    // 추기
+                    this.setState({
+                        sessionToken: token,
+                    });
                     // First param is the token got from OpenVidu Server. Second param can be retrieved by every user on event
                     // 'streamCreated' (property Stream.connection.data), and will be appended to DOM as the user's nickname
+
                     mySession
                         .connect(
                             token,
                             { clientData: this.state.myUserName },
                         )
                         .then(async () => {
-                            var devices = await this.OV.getDevices();
-                            var videoDevices = devices.filter(device => device.kind === 'videoinput');
 
                             // --- 5) Get your own camera stream ---
 
@@ -139,7 +166,10 @@ class Ovinsecure extends Component {
                             // element: we will manage it on our own) and with the desired properties
                             let publisher = this.OV.initPublisher(undefined, {
                                 audioSource: undefined, // The source of audio. If undefined default microphone
-                                videoSource: videoDevices[0].deviceId, // The source of video. If undefined default webcam
+                                // 수정
+                                // videoSource: videoDevices[0].deviceId, // The source of video. If undefined default webcam
+
+                                videoSource: undefined, // The source of video. If undefined default webcam
                                 publishAudio: true, // Whether you want to start publishing with your audio unmuted or not
                                 publishVideo: true, // Whether you want to start publishing with your video enabled or not
                                 resolution: '640x480', // The resolution of your video
@@ -154,10 +184,11 @@ class Ovinsecure extends Component {
 
                             // Set the main video in the page to display our webcam and store our Publisher
                             this.setState({
-                                currentVideoDevice: videoDevices[0],
                                 mainStreamManager: publisher,
                                 publisher: publisher,
                             });
+                            this.sendSignalUserVideo(this.props.video);
+                            this.sendSignalUserAudio(this.props.audio);
                         })
                         .catch((error) => {
                             console.log('There was an error connecting to the session:', error.code, error.message);
@@ -167,6 +198,8 @@ class Ovinsecure extends Component {
         );
     }
 
+
+    // 수정부분 없음
     leaveSession() {
 
         // --- 7) Leave the session by calling 'disconnect' method over the Session object ---
@@ -187,47 +220,15 @@ class Ovinsecure extends Component {
             mainStreamManager: undefined,
             publisher: undefined
         });
-    }
-
-    async switchCamera() {
-        try{
-            const devices = await this.OV.getDevices()
-            var videoDevices = devices.filter(device => device.kind === 'videoinput');
-
-            if(videoDevices && videoDevices.length > 1) {
-
-                var newVideoDevice = videoDevices.filter(device => device.deviceId !== this.state.currentVideoDevice.deviceId)
-
-                if (newVideoDevice.length > 0){
-                    // Creating a new publisher with specific videoSource
-                    // In mobile devices the default and first camera is the front one
-                    var newPublisher = this.OV.initPublisher(undefined, {
-                        videoSource: newVideoDevice[0].deviceId,
-                        publishAudio: true,
-                        publishVideo: true,
-                        mirror: true
-                    });
-
-                    //newPublisher.once("accessAllowed", () => {
-                    await this.state.session.unpublish(this.state.mainStreamManager)
-
-                    await this.state.session.publish(newPublisher)
-                    this.setState({
-                        currentVideoDevice: newVideoDevice,
-                        mainStreamManager: newPublisher,
-                        publisher: newPublisher,
-                    });
-                }
-            }
-          } catch (e) {
-            console.error(e);
-          }
+        console.log(this.state.publishAudio);
+        console.log(this.state.publishVideo);
     }
 
     render() {
         const mySessionId = this.state.mySessionId;
         const myUserName = this.state.myUserName;
 
+        // 수정할게 존나게 많음
         return (
             <div className="container">
                 {this.state.session === undefined ? (
@@ -275,7 +276,7 @@ class Ovinsecure extends Component {
 
                 {this.state.session !== undefined ? (
                     <div id="session">
-                       
+
                         {this.state.mainStreamManager !== undefined ? (
                             <div id="main-video" className="main-video-box">
                                 <UserVideoComponent streamManager={this.state.mainStreamManager} />
@@ -288,8 +289,8 @@ class Ovinsecure extends Component {
                                 /> */}
                             </div>
                         ) : null}
-                        {/* id="video-container" className="col-md-6 */ }
-                         <div id="video-container">
+                        {/* id="video-container" className="col-md-6 */}
+                        <div id="video-container">
                             {/* {this.state.publisher !== undefined ? (
                                 <div className="stream-container col-md-6 col-xs-6" onClick={() => this.handleMainVideoStream(this.state.publisher)}>
                                     <UserVideoComponent
@@ -318,8 +319,9 @@ class Ovinsecure extends Component {
             </div>
         );
     }
-    
 
+
+    // 수정부분 아님 
     /**
      * --------------------------
      * SERVER-SIDE RESPONSIBILITY
@@ -331,6 +333,7 @@ class Ovinsecure extends Component {
      *   2) Create a Connection in OpenVidu Server (POST /openvidu/api/sessions/<SESSION_ID>/connection)
      *   3) The Connection.token must be consumed in Session.connect() method
      */
+
 
     getToken() {
         console.log(this.state.mySessionId)
@@ -398,4 +401,4 @@ class Ovinsecure extends Component {
     }
 }
 
-export default Ovinsecure;
+export default EnterRoom;

@@ -3,21 +3,21 @@
     "username": "root",
     "password": "12345678",
     "database": "techterview",
-    "host": "127.0.0.1",
+    "host": "3.36.71.7",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "12345678",
     "database": "techterview",
-    "host": "127.0.0.1",
+    "host": "3.36.71.7",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "12345678",
     "database": "techterview",
-    "host": "127.0.0.1",
+    "host": "3.36.71.7",
     "dialect": "mysql"
   }
 }

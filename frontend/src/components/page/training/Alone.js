@@ -12,7 +12,7 @@ function TrainingAlone() {
             <div className="training-navigation-bar-logo"> TECHTERVIEW </div>
 
             <div className='traing-inner-box'>
-                <div className='training-alone-dropbox'><BasicButtonExample /></div>
+                <div className='training-alone-dropbox'></div>
             </div>
             <div className='training-footer'>
                 <div className="training-container-box">
@@ -26,14 +26,13 @@ function TrainingAlone() {
 }
 
 
-function BasicButtonExample() {
-    return (
-        <DropdownButton id="dropdown-basic-button" title="선택해주세요">
-            <Dropdown.Item href="#/action-1">직무별</Dropdown.Item>
-            <Dropdown.Item href="#/action-2">카테고리별</Dropdown.Item>
-            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-        </DropdownButton>
-    );
-}
+// const getQuestion = async () => {
+//     const json = await (
+//         await fetch(`http://localhost:8000/traing/questions/${key}`)
+//     ).json()
+
+//     // id 를 SendNum으로 
+
+// }
 
 export default TrainingAlone

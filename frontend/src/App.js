@@ -38,7 +38,7 @@ class App extends Component {
               <Route path="/training/otherslobby" element={<OthersLobby />} />
             </Route>
 
-            <Route path="/training/alone" element={<TrainingAlone />} />
+            <Route path="/training/alone::key" element={<TrainingAlone />} />
             <Route path="/training/others" element={<TrainingOthers />} />
             <Route path="/training/CreateAlone" element={<CreateAlone />} />
 

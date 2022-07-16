@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import EnterRoom from '../../../EnterRoom.js';
+import Ovinsecure from '../../../Ovinsecure';
 
 
 function TrainingOthers() {
@@ -14,7 +14,7 @@ function TrainingOthers() {
 
             <div className='traing-inner-box'>
                 <div className='training-alone-dropbox'><BasicButtonExample /></div>
-                <EnterRoom />
+                <Ovinsecure />
             </div>
             <div className='training-footer'>
                 <div className="training-container-box">

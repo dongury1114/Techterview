@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import Ovinsecure from '../../../Ovinsecure';
+import VideoRoomComponent from '../../VideoRoomComponent';
+
+
 
 
 function TrainingOthers() {
@@ -13,8 +15,8 @@ function TrainingOthers() {
             <div className="training-navigation-bar-logo"> TECHTERVIEW </div>
 
             <div className='traing-inner-box'>
-                <div className='training-alone-dropbox'><BasicButtonExample /></div>
-                <Ovinsecure />
+                <div className='training-alone-dropbox'></div>
+                <VideoRoomComponent />
             </div>
             <div className='training-footer'>
                 <div className="training-container-box">

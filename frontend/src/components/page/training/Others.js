@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-
+import Peerjs from '../peerjs/peerjs'
 
 
 
@@ -12,7 +12,7 @@ function TrainingOthers() {
         <div className="training-container">
             <Helmet><style>{'body { background-color: black; }'}</style></Helmet>
             <div className="training-navigation-bar-logo"> TECHTERVIEW </div>
-
+            <Peerjs/>
             <div className='traing-inner-box'>
                 <div className='training-alone-dropbox'></div>
             </div>

@@ -74,8 +74,6 @@ function CreateRoomAlone({ closeModal }) {
     function handleClick(e) {
         window.location.replace("../page/training/Alone/" + SendNum)
     }
-
-    console.log(SendNum);
     return (
         <div className="Create-delete-modal">
             <div className="Create-delete-modal-content">

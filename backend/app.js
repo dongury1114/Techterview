@@ -20,7 +20,13 @@ var app = express();
 
 const { sequelize } = require('./models/index');
 
-sequelize.sync({ force: false }) 
+
+app.get('/api', (req, res) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.send(data);
+});
+
+sequelize.sync({ force: false })
   .then(() => {
     console.log('데이터베이스 연결 성공');
   })
@@ -36,10 +42,10 @@ app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(cors());
 
-app.use(session({secret:'MySecret', resave: false, saveUninitialized:true}));
+app.use(session({ secret: 'MySecret', resave: false, saveUninitialized: true }));
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended:true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(logger('dev'));
 app.use(express.json());

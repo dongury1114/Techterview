@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import VideoRoomComponent from '../../VideoRoomComponent';
 
 
 
@@ -16,13 +15,9 @@ function TrainingOthers() {
 
             <div className='traing-inner-box'>
                 <div className='training-alone-dropbox'></div>
-                <VideoRoomComponent />
             </div>
             <div className='training-footer'>
                 <div className="training-container-box">
-                    {/* <div className="training-item1">1<img className="video-thumbnail-second-place" src={require("../images/start.png")} alt={"start button"} /></div>
-                        <div className="training-item-first-place"><img className="video-thumbnail-first-place" src={require("../images/next.png")} alt={"next button"} />   </div>
-                        <div className="training-item"><img className="video-thumbnail-third-place" src={require("../images/end.png")} alt={"end button"} />   </div> */}
                 </div>
             </div>
         </div>

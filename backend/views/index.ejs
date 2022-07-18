@@ -1,14 +1,5 @@
 <h1>Main Page</h1>
 
-<% if(!user){ %>
-  <a href="auth/login">Login</a>
-<% } else { %>
-  <% if (user.displayName) { %>
-    <p>Welcome <%= user.displayName %></p>
-    <p>Welcome <%= user.provider %></p>
-  <% } else { %>
-    <p>Welcome <%= user.name %></p>
-    <p>Welcome <%= user.provider %></p>
-  <% } %>
-    <a href="auth/logout">Logout</a>
-<% } %>
+
+<p>Welcome <%= title %></p>
+<a href="http://localhost:3000">Service page로 이동하기~</a>

@@ -1,10 +1,11 @@
 import React, { Component } from "react"
 import { BrowserRouter, Routes, Router, Route } from "react-router-dom";
-import axios from 'axios';
 
 import "./index.css"
 import "./components/modal/VideoDeleteModal.css"
+import "./components/modal/CreateRoom.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import Navbar from "./components/layout/Nav"
 import Mainbody from "./components/page/Main"
@@ -15,6 +16,8 @@ import Login from "./components/page/LogIn";
 import QuestionList from "./components/page/questionList/MainPage";
 import TrainingAlone from "./components/page/training/Alone";
 import TrainingOthers from "./components/page/training/Others";
+import OthersLobby from "./components/page/training/OthersLobby";
+import CreateAlone from "./components/page/training/CreateAlone";
 
 class App extends Component {
   render() {
@@ -26,15 +29,17 @@ class App extends Component {
             <Route element={<Navbar />}>
               <Route path="/" element={<Mainbody />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/feedback/Myvideo" element={<MyVideo />} />
+              <Route path="/feedback/myvideo" element={<MyVideo />} />
               <Route path="/questionlist/mainpage" element={<QuestionList />} />
               <Route path="/feedback/mainpage" element={<Feedback />} />
-              <Route path="/feedback/Detail" element={<FeedbackDetail />} />
-
+              <Route path="/feedback/detail" element={<FeedbackDetail />} />
+              <Route path="/training/detail" element={<FeedbackDetail />} />
+              <Route path="/training/otherslobby" element={<OthersLobby />} />
             </Route>
 
-            <Route path="/training/Alone" element={<TrainingAlone />} />
-            <Route path="/Training/Others" element={<TrainingOthers/>}/>
+            <Route path="/page/training/alone/:key" element={<TrainingAlone />} />
+            <Route path="/training/others" element={<TrainingOthers />} />
+            <Route path="/training/CreateAlone" element={<CreateAlone />} />
 
           </Routes>
         </BrowserRouter>
